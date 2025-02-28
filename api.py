@@ -16,7 +16,8 @@ def verify_api_key(api_key: str = Depends(api_key_header)):
         raise HTTPException(status_code=403, detail="Clave API inválida")
 
 # Ruta del archivo KML (Usamos la misma carpeta para evitar errores)
-KML_FILE_PATH = "zonas_medellin.kml"
+KML_FILE_PATH = os.path.join(os.path.dirname(__file__), "ZONAS MEDELLIN.kml")
+
 
 def extract_coordinates(kml_file):
     try:
