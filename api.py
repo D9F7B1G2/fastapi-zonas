@@ -7,7 +7,7 @@ import os
 app = FastAPI()
 
 # Configuración de API Key
-API_KEY = "MI_CLAVE_SECRETA"  # Cambia esto por una clave más segura
+API_KEY = "CLAVE_API-ZONAS_XCARGO"  # Cambia esto por una clave más segura
 API_KEY_NAME = "X-API-Key"
 api_key_header = APIKeyHeader(name=API_KEY_NAME, auto_error=True)
 
