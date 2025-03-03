@@ -48,7 +48,7 @@ zones = extract_coordinates(KML_FILE_PATH)
 
 @app.get("/")
 def read_root():
-    return {"message": "Bienvenido a la API de Zonas de Medellín"}
+    return {"Bienvenido a la API Zonas de Colombia de X-cargo"}
 
 @app.get("/zonas", dependencies=[Depends(verify_api_key)])
 def get_zones():
