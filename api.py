@@ -81,3 +81,9 @@ def upload_kml(file: UploadFile = File(...)):
         return {"message": "Archivo KML actualizado correctamente"}
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Error al procesar el archivo: {str(e)}")
+
+import uvicorn
+
+if __name__ == "__main__":
+    uvicorn.run("api:app", host="0.0.0.0", port=8000, workers=4, timeout_keep_alive=30)
+
