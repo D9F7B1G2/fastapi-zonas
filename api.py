@@ -85,5 +85,5 @@ def upload_kml(file: UploadFile = File(...)):
 import uvicorn
 
 if __name__ == "__main__":
-    uvicorn.run("api:app", host="0.0.0.0", port=8000, workers=4, timeout_keep_alive=30)
+    uvicorn.run("api:app", host="0.0.0.0", port=8000, workers=8, timeout_keep_alive=30)
 
