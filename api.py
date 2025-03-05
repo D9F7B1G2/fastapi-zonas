@@ -69,20 +69,7 @@ def buscar_zona(lat: float = Query(...), lon: float = Query(...)):
     
     raise HTTPException(status_code=404, detail="Zona no encontrada")
 
-@app.post("/upload-kml/", dependencies=[Depends(verify_api_key)])
-def upload_kml(file: UploadFile = File(...)):
-    try:
-        with open(KML_FILE_PATH, "wb") as buffer:
-            shutil.copyfileobj(file.file, buffer)
-        
-        global zones
-        zones = extract_coordinates(KML_FILE_PATH)
-        
-        return {"message": "Archivo KML actualizado correctamente"}
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=f"Error al procesar el archivo: {str(e)}")
-
-import uvicorn
+#pendiente endpoint para cargar mas archivos
 
 if __name__ == "__main__":
     uvicorn.run("api:app", host="0.0.0.0", port=8000, workers=8, timeout_keep_alive=30)
